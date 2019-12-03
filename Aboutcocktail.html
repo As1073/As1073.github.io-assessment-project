@@ -1,0 +1,379 @@
+<html>
+<head>
+  <title>COCKTAILS</title>
+  <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/animate.js"></script>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link href="css/animate.css" rel="stylesheet"/>
+  <link href="css/font-awesome.min.css" rel="stylesheet"/>
+  <script type="text/javascript" >
+  function goToAbtS()
+  {
+    window.location="index.html";
+  }
+  function beforeprintss()
+  {
+    var a=document.getElementById("ssss").value;
+    document.getElementById("ima").innerHTML="";
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function()
+    {
+      if(this.readyState == 4 && this.status == 200)
+      {
+        var data = JSON.parse(this.responseText);
+        console.log(data);
+        var im=document.createElement("img");
+        im.setAttribute("src",data.drinks[0].strDrinkThumb);
+        im.setAttribute("height","300px");
+        im.setAttribute("width","300px");
+        document.getElementById("ima").appendChild(im);
+        var Ingredient=document.createElement("h3");
+        Ingredient.innerHTML="INGREDIENTS";
+        document.getElementById("ima").appendChild(Ingredient);
+        document.getElementById("nameofdrink").innerHTML=data.drinks[0].strDrink;
+        if(data.drinks[0].strIngredient1!=null)
+        {
+          var li=document.createElement("li");
+          li.setAttribute("type","none");
+          document.getElementById("ima").appendChild(li);
+          li.innerHTML=data.drinks[0].strIngredient1;
+        }
+        if(data.drinks[0].strIngredient2!=null)
+        {
+          li=document.createElement("li");
+          document.getElementById("ima").appendChild(li);
+          li.setAttribute("type","none");
+          li.innerHTML=data.drinks[0].strIngredient2;
+        }
+        if(data.drinks[0].strIngredient3!=null)
+        {
+          li=document.createElement("li");
+          document.getElementById("ima").appendChild(li);
+          li.setAttribute("type","none");
+          li.innerHTML=data.drinks[0].strIngredient3;
+        }
+        if(data.drinks[0].strIngredient4!=null)
+        {
+          li=document.createElement("li");
+          document.getElementById("ima").appendChild(li);
+          li.setAttribute("type","none");
+          li.innerHTML=data.drinks[0].strIngredient4;
+        }
+        if(data.drinks[0].strIngredient5!=null)
+        {
+          li=document.createElement("li");
+          document.getElementById("ima").appendChild(li);
+          li.setAttribute("type","none");
+          li.innerHTML=data.drinks[0].strIngredient5;
+        }
+        var Instructions=document.createElement("h3");
+        Instructions.innerHTML="INSTRUCTIONS";
+        document.getElementById("ima").appendChild(Instructions);
+        var instr=document.createElement("p");
+        instr.innerHTML=data.drinks[0].strInstructions;
+        document.getElementById("ima").appendChild(instr);
+      }
+    };
+    xhttp.open("GET","https://www.thecocktaildb.com/api/json/v1/1/search.php?s="+a, true);
+    xhttp.send();
+  }
+  function printss(a)
+  {
+  	document.getElementById("ima").innerHTML="";
+  	var xhttp = new XMLHttpRequest();
+  	xhttp.onreadystatechange = function()
+  	{
+  		if(this.readyState == 4 && this.status == 200)
+  		{
+  			var data = JSON.parse(this.responseText);
+  			console.log(data);
+  			var im=document.createElement("img");
+  			im.setAttribute("src",data.drinks[0].strDrinkThumb);
+        im.setAttribute("height","300px");
+        im.setAttribute("width","300px");
+  			document.getElementById("ima").appendChild(im);
+        var Ingredient=document.createElement("h3");
+        Ingredient.innerHTML="INGREDIENTS";
+        document.getElementById("ima").appendChild(Ingredient);
+        document.getElementById("nameofdrink").innerHTML=data.drinks[0].strDrink;
+  			if(data.drinks[0].strIngredient1!=null)
+  			{
+  				var li=document.createElement("li");
+          li.setAttribute("type","none");
+  				document.getElementById("ima").appendChild(li);
+  				li.innerHTML=data.drinks[0].strIngredient1;
+  			}
+  			if(data.drinks[0].strIngredient2!=null)
+  			{
+  				li=document.createElement("li");
+  				document.getElementById("ima").appendChild(li);
+          li.setAttribute("type","none");
+  				li.innerHTML=data.drinks[0].strIngredient2;
+  			}
+  			if(data.drinks[0].strIngredient3!=null)
+  			{
+  				li=document.createElement("li");
+  				document.getElementById("ima").appendChild(li);
+          li.setAttribute("type","none");
+  				li.innerHTML=data.drinks[0].strIngredient3;
+  			}
+  			if(data.drinks[0].strIngredient4!=null)
+  			{
+  				li=document.createElement("li");
+  				document.getElementById("ima").appendChild(li);
+          li.setAttribute("type","none");
+  				li.innerHTML=data.drinks[0].strIngredient4;
+  			}
+  			if(data.drinks[0].strIngredient5!=null)
+  			{
+  				li=document.createElement("li");
+  				document.getElementById("ima").appendChild(li);
+          li.setAttribute("type","none");
+  				li.innerHTML=data.drinks[0].strIngredient5;
+  			}
+        var Instructions=document.createElement("h3");
+        Instructions.innerHTML="INSTRUCTIONS";
+        document.getElementById("ima").appendChild(Instructions);
+        var instr=document.createElement("p");
+        instr.innerHTML=data.drinks[0].strInstructions;
+        document.getElementById("ima").appendChild(instr);
+  		}
+  	};
+  	xhttp.open("GET","https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i="+a, true);
+  	xhttp.send();
+  }
+  var xhttp=new XMLHttpRequest();
+  xhttp.onreadystatechange=function()
+  {
+    if(this.readyState==4 && this.status==200)
+    {
+      var data=JSON.parse(this.responseText);
+      console.log(data);
+      for(let i=0;i<data.drinks.length&&i<10;i++)
+      {
+        var li=document.createElement("li");
+        var img=document.createElement("img");
+        var br=document.createElement("br");
+        img.setAttribute("src",data.drinks[i].strDrinkThumb);
+        img.setAttribute("height","50px");
+        img.setAttribute("width","50px");
+        img.setAttribute("margin-top","10px");
+		 li.setAttribute("type","none");
+        li.appendChild(img);
+        var a=document.createElement("a");
+        li.appendChild(a);
+        document.getElementById("List1").appendChild(li);
+        document.getElementById("List1").appendChild(br);
+        a.innerHTML=data.drinks[i].strDrink;
+        a.setAttribute("href","#");
+        a.setAttribute("data-toggle","modal");
+        a.setAttribute("data-target","#AboutDrink");
+        a.setAttribute('onclick','printss(data.drinks[i].idDrink);');
+        a.onclick = function() {printss(data.drinks[i].idDrink);};
+      }
+      for(let i=10;i<data.drinks.length&&i<20;i++)
+      {
+        var li=document.createElement("li");
+        var img=document.createElement("img");
+        var br=document.createElement("br");
+        img.setAttribute("src",data.drinks[i].strDrinkThumb);
+        img.setAttribute("height","50px");
+        img.setAttribute("width","50px");
+        img.setAttribute("margin-top","10px");
+		 li.setAttribute("type","none");
+        li.appendChild(img);
+        var a=document.createElement("a");
+        li.appendChild(a);
+        document.getElementById("List2").appendChild(li);
+        document.getElementById("List2").appendChild(br);
+        a.innerHTML=data.drinks[i].strDrink;
+        a.setAttribute("href","#");
+        a.setAttribute("data-toggle","modal");
+        a.setAttribute("data-target","#AboutDrink");
+        a.setAttribute('onclick','printss(data.drinks[i].idDrink);');
+        a.onclick = function() {printss(data.drinks[i].idDrink);};
+      }
+			for(let i=20;i<data.drinks.length&&i<30;i++)
+			{
+				var li=document.createElement("li");
+				var img=document.createElement("img");
+				var br=document.createElement("br");
+				img.setAttribute("src",data.drinks[i].strDrinkThumb);
+				img.setAttribute("height","50px");
+				img.setAttribute("width","50px");
+				img.setAttribute("margin-top","10px");
+				 li.setAttribute("type","none");
+				li.appendChild(img);
+				var a=document.createElement("a");
+				li.appendChild(a);
+				document.getElementById("List3").appendChild(li);
+				document.getElementById("List3").appendChild(br);
+				a.innerHTML=data.drinks[i].strDrink;
+				a.setAttribute("href","#");
+				a.setAttribute("data-toggle","modal");
+				a.setAttribute("data-target","#AboutDrink");
+				a.setAttribute('onclick','printss(data.drinks[i].idDrink);');
+				a.onclick = function() {printss(data.drinks[i].idDrink);};
+			}
+			for(let i=30;i<data.drinks.length&&i<40;i++)
+			{
+				var li=document.createElement("li");
+				var img=document.createElement("img");
+				var br=document.createElement("br");
+				img.setAttribute("src",data.drinks[i].strDrinkThumb);
+				img.setAttribute("height","50px");
+				img.setAttribute("width","50px");
+				img.setAttribute("margin-top","10px");
+				 li.setAttribute("type","none");
+				li.appendChild(img);
+				var a=document.createElement("a");
+				li.appendChild(a);
+				document.getElementById("List4").appendChild(li);
+				document.getElementById("List4").appendChild(br);
+				a.innerHTML=data.drinks[i].strDrink;
+				a.setAttribute("href","#");
+				a.setAttribute("data-toggle","modal");
+				a.setAttribute("data-target","#AboutDrink");
+				a.setAttribute('onclick','printss(data.drinks[i].idDrink);');
+				a.onclick = function() {printss(data.drinks[i].idDrink);};
+			}
+			for(let i=40;i<data.drinks.length&&i<49;i++)
+			{
+				var li=document.createElement("li");
+				var img=document.createElement("img");
+				var br=document.createElement("br");
+				img.setAttribute("src",data.drinks[i].strDrinkThumb);
+				img.setAttribute("height","50px");
+				img.setAttribute("width","50px");
+				img.setAttribute("margin-top","10px");
+				 li.setAttribute("type","none");
+				li.appendChild(img);
+				var a=document.createElement("a");
+				li.appendChild(a);
+				document.getElementById("List5").appendChild(li);
+				document.getElementById("List5").appendChild(br);
+				a.innerHTML=data.drinks[i].strDrink;
+				a.setAttribute("href","#");
+				a.setAttribute("data-toggle","modal");
+				a.setAttribute("data-target","#AboutDrink");
+				a.setAttribute('onclick','printss(data.drinks[i].idDrink);');
+				a.onclick = function() {printss(data.drinks[i].idDrink);};
+			}
+			for(let i=49;i<data.drinks.length&&i<60;i++)
+			{
+				var li=document.createElement("li");
+				var br=document.createElement("br");
+				var img=document.createElement("img");
+				img.setAttribute("src",data.drinks[i].strDrinkThumb);
+				img.setAttribute("height","50px");
+				img.setAttribute("width","50px");
+				img.setAttribute("margin-top","10px");
+				 li.setAttribute("type","none");
+				li.appendChild(img);
+				var a=document.createElement("a");
+				li.appendChild(a);
+				document.getElementById("List6").appendChild(li);
+				a.innerHTML=data.drinks[i].strDrink;
+				a.setAttribute("href","#");
+				a.setAttribute("data-toggle","modal");
+				a.setAttribute("data-target","#AboutDrink");
+				document.getElementById("List6").appendChild(br);
+				a.setAttribute('onclick','printss(data.drinks[i].idDrink);');
+				a.onclick = function() {printss(data.drinks[i].idDrink);};
+			}
+    }
+  };
+  xhttp.open("GET","https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic",true);
+  xhttp.send();
+</script>
+<style>
+body {
+ background-image: url("pics/c8.jpg") ;
+ 
+ }
+</style>
+</head>
+<body style="background-color:#8B4513">
+  <nav class="navbar navbar-inverse" style="border: 2px #a94442 solid;box-shadow:-1px -1px 20px 3px black;">
+    <div class="container-fluid yy">
+      
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#" style="color:#ff5722">COCKTOTYM</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><input type="text" style="margin-top:12px" id="ssss"/></li>
+          <li><a href="#" style="color:#a94442" data-toggle="modal" data-target="#AboutDrink" onclick="beforeprintss()" >SEARCH</a></li>
+          <li><a href="#" style="color:#a94442" onClick="goToAbtS();">LOGOUT</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+   <div>
+    <div class="col-md-4" style="text-align:center">
+	  <h3>MRP 399</h3>
+	</div>
+	<div class="col-md-3"></div>
+	 <div class="col-md-4" style="text-align:center">
+	  <h3>MRP 499</h3>
+	 </div> 
+	<br>
+	<br>
+	<br>
+     <div id="Alcohol">
+	   
+	   <div style="display:flex ">
+	   
+	   <div class="col-md-5" style="display:flex">  
+	   
+	   <div id="List1"></div>
+	   <div id="List2" ></div>
+	   </div>
+	   <div class="col-md-2"></div>
+	   <div class="col-md-5" style="display:flex">
+	   <div id="List3"></div>
+	   <div id="List4"></div>
+	   </div>
+	   </div>
+	   
+	   <center style="margin:30px"><h3><b>MRP 799</b></h3></center>
+	   <div style="display:flex">
+	   
+	   <div class="col-md-4">
+	   </div>
+	   <div id="List5" class="col-md-3">
+	   </div>
+	   <div id="List6" class="col-md-3">
+	   </div>
+	   <div class="col-md-3">
+	   </div>
+	   
+	   
+	   </div>
+    </div>
+  </body>
+ 
+
+<div class="modal fade" id="AboutDrink" tabindex="-1" role="dialog" >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header xyz" style="background-color:#000">
+            <button type="button" class="close" onClick="toggleFullScreen()"><span aria-hidden="true" class="glyphicon glyphicon-fullscreen"></span></button>
+            <h3 class="modal-title text-info text-uppercase " id="nameofdrink"></h3>
+          </div>
+          <div class="modal-body " style="text-align:center">
+            <div id="ima">
+              xyz
+            </div>
+
+    </div>
+
+</html>

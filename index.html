@@ -1,0 +1,441 @@
+﻿<!DOCTYPE html>
+<html >
+    <head>
+
+        <title>COCKTOTYM</title>
+        <style>
+        .recentsold
+        {
+          margin:10px;
+          height:300px;
+          width:300px;
+
+        }
+        .drinkname
+        {
+          font-size: 20px;
+          text-align: center;
+        }
+		body
+		{
+		  background-image: linear-gradient(45deg, black, transparent);
+		}
+ </style>
+
+<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/animate.js"></script>
+        <script type="text/javascript" src="js/logic.js"></script>
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link href="css/animate.css" rel="stylesheet" />
+    	<link href="css/font-awesome.min.css" rel="stylesheet" />
+<script type="text/javascript" >
+		  function log()
+		  {window.location="#loginForm";
+
+
+
+			  }
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function()
+        {
+        	if(this.readyState == 4 && this.status == 200)
+        	{
+        		var data = JSON.parse(this.responseText);
+        		var imggg=document.createElement("img");
+            imggg.setAttribute("class","recentsold");
+            imggg.setAttribute("src",data.drinks[0].strDrinkThumb);
+            document.getElementById("image1").appendChild(imggg);
+            var p=document.createElement("p");
+            p.innerHTML=data.drinks[0].strDrink;
+            p.setAttribute("class","drinkname");
+            document.getElementById("image1").appendChild(p);
+        	}
+        };
+        xhttp.open("GET","https://the-cocktail-db.p.rapidapi.com/random.php");
+	xhttp.setRequestHeader("x-rapidapi-host", "the-cocktail-db.p.rapidapi.com");
+	xhttp.setRequestHeader("x-rapidapi-key", "815a707bb1msh797fd8214bd5701p1eeb3cjsn13023e3c93a6");;
+        xhttp.send();
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function()
+        {
+        	if(this.readyState == 4 && this.status == 200)
+        	{
+        		var data = JSON.parse(this.responseText);
+        		console.log(data);
+            var imggg=document.createElement("img");
+            imggg.setAttribute("src",data.drinks[0].strDrinkThumb);
+            imggg.setAttribute("class","recentsold");
+            document.getElementById("image2").appendChild(imggg);
+            var p=document.createElement("p");
+            p.innerHTML=data.drinks[0].strDrink;
+            p.setAttribute("class","drinkname");
+            document.getElementById("image2").appendChild(p);
+        	}
+        };
+        xhttp.open("GET","https://the-cocktail-db.p.rapidapi.com/random.php");
+	xhttp.setRequestHeader("x-rapidapi-host", "the-cocktail-db.p.rapidapi.com");
+	xhttp.setRequestHeader("x-rapidapi-key", "815a707bb1msh797fd8214bd5701p1eeb3cjsn13023e3c93a6");
+        xhttp.send();
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function()
+        {
+        	if(this.readyState == 4 && this.status == 200)
+        	{
+        		var data = JSON.parse(this.responseText);
+        		console.log(data);
+            var imggg=document.createElement("img");
+            imggg.setAttribute("src",data.drinks[0].strDrinkThumb);
+            imggg.setAttribute("class","recentsold");
+            document.getElementById("image3").appendChild(imggg);
+            var p=document.createElement("p");
+            p.innerHTML=data.drinks[0].strDrink;
+            p.setAttribute("class","drinkname");
+            document.getElementById("image3").appendChild(p);
+        	}
+        };
+        xhttp.open("GET","https://the-cocktail-db.p.rapidapi.com/random.php");
+	xhttp.setRequestHeader("x-rapidapi-host", "the-cocktail-db.p.rapidapi.com");
+	xhttp.setRequestHeader("x-rapidapi-key", "815a707bb1msh797fd8214bd5701p1eeb3cjsn13023e3c93a6");
+        xhttp.send();
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function()
+        {
+        	if(this.readyState == 4 && this.status == 200)
+        	{
+        		var data = JSON.parse(this.responseText);
+        		console.log(data);
+            var imggg=document.createElement("img");
+            imggg.setAttribute("src",data.drinks[0].strDrinkThumb);
+            imggg.setAttribute("class","recentsold");
+            document.getElementById("image4").appendChild(imggg);
+            var p=document.createElement("p");
+            p.innerHTML=data.drinks[0].strDrink;
+            p.setAttribute("class","drinkname");
+            document.getElementById("image4").appendChild(p);
+        	}
+        };
+        xhttp.open("GET","https://the-cocktail-db.p.rapidapi.com/random.php");
+	xhttp.setRequestHeader("x-rapidapi-host", "the-cocktail-db.p.rapidapi.com");
+	xhttp.setRequestHeader("x-rapidapi-key", "815a707bb1msh797fd8214bd5701p1eeb3cjsn13023e3c93a6");
+        xhttp.send();
+
+</script>
+
+
+
+    </head>
+<body>
+
+
+                <div class="container-fluid yy" style="border: 2px #a94442 solid;box-shadow:-1px -1px 20px 3px black; color:#ff5722">
+
+                <div class="navbar-header" >
+
+                    <a class="navbar-brand" href="#" style="color:#ff5722">COCKTOTYM</a>
+                </div>
+
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+
+                         <li><a href="#aboutus" style="color:#a94442">Recent Sold</a></li>
+
+                        <li><a href="#contactus" style="color:#a94442" onClick="goToCont();">Contact Us</a></li>
+                        <li><a href="#" style="color:#a94442" data-toggle="modal" data-target="#loginForm">Login</a></li>
+                        <li><a href="#" style="color:#a94442" data-toggle="modal" data-target="#RegForm">Registration</a></li>
+                    </ul>
+                </div>
+             </div>
+            </nav>
+
+  
+            
+      
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+<ol class="carousel-indicators">
+<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+
+</ol>
+
+
+<div class="carousel-inner" role="listbox">
+<div class="item active">
+<img src="pics/c3.jpg"  width="100%"  alt="...">
+<div class="carousel-caption">
+  
+</div>
+</div>
+<div class="item">
+<img src="pics/c2.jpg" width="100%" alt="...">
+<div class="carousel-caption">
+  
+</div>
+</div>
+
+</div>
+
+
+<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+<span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+<span class="sr-only">Next</span>
+</a>
+</div>
+
+
+<div class="container-fluid" id="aboutcocktail">
+    <div class="row">
+    	<div class="col-md-12" style="border: 2px #a94442 solid;box-shadow:-1px -1px 20px 3px black; color:#ff5722">
+        	<center><h1>About Cocktails</h1></center>
+        </div>
+    </div>			
+<div class="row">
+<p></p>
+
+<div class="col-md-4 col-md-offset-1">
+<img src="pics/c6.jpg" width="500px" height="300px" >
+</div>
+<div class="col-md-4 col-md-offset-2">
+<p style=" font-size:larger">The first publication of a bartenders' guide which included cocktail recipes was in 1862 – How to Mix Drinks; or, The Bon Vivant's Companion, by "Professor" Jerry Thomas. In addition to recipes for punches, sours, slings, cobblers, shrubs, toddies, flips, and a variety of other mixed drinks were 10 recipes for "cocktails". A key ingredient differentiating cocktails from other drinks in this compendium was the use of bitters. Mixed drinks popular today that conform to this original meaning of "cocktail" include the Old Fashioned whiskey cocktail, the Sazerac cocktail, and the Manhattan cocktail.
+
+</p>
+</div>
+</div>
+<br>
+<br>
+
+<hr>
+<div class="row">
+
+
+<div class="col-md-4 col-md-offset-1">
+<br>
+<br>
+<p style=" font-size:larger">Whether you are planning for a party or simply wondering what to order during your next night out on the town, knowing the most common and popular cocktails makes ordering and serving a breeze. Cocktails typically contain one or more types of liquor along with several mixers, such as fruit juice, citrus juice, mint, honey, bitters, soda, and/or cream.
+</p>
+</div>
+
+<div class="col-md-4 col-md-offset-2">
+<img src="pics/c5.jpg" width="500px" height="300px" >
+</div>
+</div>
+</div>
+
+<br>
+
+
+
+<div class="container-fluid" id="aboutus">
+    <div class="row">
+    	<div class="col-md-12" style="border: 2px #a94442 solid;box-shadow:-1px -1px 20px 3px black; color:#ff5722">
+        	<center><h1>Recent Sold</h1></center>
+        </div>
+    </div>
+    <div class="row"  style="margin-top:10px;">
+           </div>			
+<div class="row">
+<p></p>
+
+<div  id="image1" class="col-md-4 col-md-offset-1">
+
+</div>
+<div id="image2" class="col-md-4 col-md-offset-2">
+
+</div>
+</div>
+<br>
+<br>
+
+
+<div class="row">
+
+
+<div id="image3" class="col-md-4 col-md-offset-1">
+
+</div>
+
+<div id="image4" class="col-md-4 col-md-offset-2">
+
+</div>
+</div>
+</div>	
+	
+  <div class="container-fluid">
+    <div class="row">
+    	<div class="col-md-12" style="border: 2px #a94442 solid;box-shadow:-1px -1px 20px 3px black; color:#ff5722">
+        	<center><h1>Contact Us</h1></center>
+        </div>
+
+    </div>
+
+	
+  
+    <div class="row" id="contactus" style="margin-top:10px; display:flex">
+
+       <div class="col-md-6">
+	   <div id="googleMap" style="width:100%;height:400px;"></div>
+
+<script>
+function myMap() {
+var mapProp= {
+  center:new google.maps.LatLng(30.742249,76.733621),
+  zoom:30,
+};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2LiYIaaq7tkuV53zUWtNgD6zgFmEiWx4&callback=myMap"></script>
+
+	  
+	   </div>
+	   
+	   
+	   <div style="float:right" class="col-md-5">
+	   <input type="text" placeholder="NAME" style="height:45px;width:250px"/>
+	   <br>
+	   <br>
+	   <input type="number" placeholder="MOBILE" style="height:45px;width:250px"/>
+	   <br>
+	   <br>
+	   <input type="email" placeholder="EMAIL" style="height:45px;width:250px"/>
+	   <br>
+	   <br>
+     <textarea rows="4" cols="50"></textarea>
+     <br>
+	   <button onclick=window.alert("We Will contact You Soon ")>SEND MESSAGE</button>
+	   
+	   </div>
+
+	   
+        </div>
+		</div>
+
+
+
+
+
+
+
+    </div>
+
+
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+    	<div class="col-md-12" style="border: 2px #a94442 solid;box-shadow:-1px -1px 20px 3px black; color:#ff5722">
+        	<center><h1 onClick=window.open("http://as1073.github.io/");>TO KNOW ABOUT OWNER CLICK HERE</h1></center>
+        </div>
+
+    </div>
+
+</body>
+
+
+
+
+	<div class="modal fade" id="loginForm" tabindex="-1" role="dialog" >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header xyz" style="background-color:#000">
+           
+            <h3 class="modal-title text-info text-uppercase ">User Login</h3>
+          </div>
+          <div class="modal-body " style="text-align:center">
+          	<form id="logn" action="Aboutcocktail.html">
+<table  width="100%" height="200" >
+  <tr>
+
+    <td><input type="text" name="lusername" id="lusername" class="form-control" placeholder="User Name" style="text-align:center" required></td>
+
+  </tr>
+  <tr>
+
+    <td><input type="password" name="lpassword" id="lpassword" class="form-control" placeholder="Password" style="text-align:center" required></td>
+  </tr>
+
+  <tr>
+<td></td>
+    
+  </tr>
+  <tr>
+<td></td>
+    
+  </tr>
+  
+
+
+</table>
+
+          </div>
+          <div class="modal-footer x" style="text-align:center" style="background-color:#CF0">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <input type="submit" class="btn btn-danger" value="Login" id="LoginBtn" name="login"></input>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="modal fade" id="RegForm" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header " style="background-color:#000">
+           
+            <h3 class="modal-title text-info text-uppercase x">Register</h3>
+          </div>
+          <div class="modal-body x" >
+          	<form id="regst">
+<table  border="1">
+  <tr>
+    <th>Userame</th>
+    <td><input type="text" name="username" id="username" class="form-control"  required></td>
+
+  </tr>
+  <tr>
+    <th>Password</th>
+    <td><input type="text" name="password" id="password" class="form-control "  required></td>
+  </tr>
+  <tr>
+    <th>Mobile</th>
+    <td><input type="text" name="mobile" id="mobile" class="form-control"  required></td>
+  </tr>
+  <tr>
+    
+  </tr>
+  <tr>
+    <th>
+    </th>
+    <td>
+
+    </td>
+  </tr>
+
+
+</table>
+
+          </div>
+</form>
+          <div class="modal-footer x" style="text-align:center; background-color:#CF0">
+            <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+            <input type="submit" form="regst" class="btn btn-danger"  value="Register" id="Regbtn" name="Register" ></input>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+</html>
